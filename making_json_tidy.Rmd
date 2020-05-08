@@ -1,0 +1,27 @@
+---
+title: "Making JSON Tidy"
+output: html_document
+---
+
+To begin with we will attempt this using the base `RJSON` package, and obviously will just go ahead and load the `tidyverse` package while we are here too.
+
+```{r setup, echo = T, message = F}
+library(rjson)
+library(tidyverse)
+```
+
+The file we are wanting is contained under our data folder, and will use the "USen" language variant, and then start working with the accessories only. 
+
+```{r load_data, echo = T}
+items <- fromJSON(file = "data/items/items_USen.json")
+```
+
+The JSON file is initially read in as a relatively large "list of lists" which is not particularly traversable. We can see what the different contained lists are just by calling `names(items)` and identifying that we wish to begin with *clothing_Accessory*. In order to begin containing this within a tibble we use `unlist()` and `enframe()` but this will just get the following...
+
+```{r cut_down, echo = T}
+acc <- enframe(unlist(items$clothing_Accessory))
+head(acc, 10)
+acc %>% dplyr::distinct(name)
+```
+
+Just impossible to work with and wanting to create a tidy version with columns of  *id1*, *id2*, *name*, *color*, *DiyRecipe1*, *DiyRecipe2*, and *price*. Once we have this working for this subset of items, it will be easily transferrable to all others. 

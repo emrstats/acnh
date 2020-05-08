@@ -1,0 +1,18 @@
+Design Document
+
+Just a quick thing I am throwing together
+
+Initial use case:
+Daily shopping visits for clothing, items, collectibles, wallpaper and flooring from Nook's Cranny, the Able Sister's, Kick's stall, and Redd's boat.
+Not including Leif (only sells plants) or Saharah (purchases are random)
+
+Desired user behavior outcome:
+Go to shop and enter what is available
+Checks records for that player to see if catalogued already, and what variants are catalogued
+Returns shopping list displaying all variants not yet purchased (using images once possible), if any
+As user purchases items, checking off grays out image
+User is then asked to confirm shopping trip is complete
+User catalogue is updated for tomorrow
+
+Potential future behavior:
+Friending others (or allowing public access) means others can see what visitors you have and the items in the stores, as well as what from their catalogue they can buy
